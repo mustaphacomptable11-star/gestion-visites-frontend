@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gestion des Visites & Rendez-vous</title>
+  <meta charset="UTF-8">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+    th, td { border: 1px solid #888; padding: 8px; }
+    th { background-color: #eee; }
+    input, select, button { margin: 5px; padding: 5px; }
+    .form-section { border: 1px solid #ccc; padding: 10px; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Gestion des Visites & Rendez-vous</h1>
+
+  <div>
+    <button onclick="loadVisites()">Voir toutes les visites</button>
+    <button onclick="loadRendezVous()">Voir tous les rendez-vous</button>
+  </div>
+
+  <h2>Visites</h2>
+  <table id="visitesTable">
+    <thead>
+      <tr>
+        <th>ID</th><th>Client</th><th>Date</th><th>Heure</th><th>Lieu</th><th>Statut</th><th>Actions</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <div class="form-section">
+    <h3 id="formVisiteTitle">Nouvelle visite</h3>
+    <input type="hidden" id="visiteId" />
+    <label>Nom Client: <input type="text" id="visiteNom"></label><br>
+    <label>Date: <input type="date" id="visiteDate"></label><br>
+    <label>Heure: <input type="time" id="visiteHeure"></label><br>
+    <label>Lieu: <input type="text" id="visiteLieu"></label><br>
+    <label>Statut: 
+      <select id="visiteStatut">
+        <option value="Planifiée">Planifiée</option>
+        <option value="Effectuée">Effectuée</option>
+        <option value="Annulée">Annulée</option>
+      </select>
+    </label><br>
+    <button onclick="submitVisite()">Enregistrer visite</button>
+    <button onclick="cancelVisite()">Annuler</button>
+  </div>
+
+  <h2>Rendez-vous</h2>
+  <table id="rvTable">
+    <thead>
+      <tr>
+        <th>ID</th><th>Client</th><th>Date</th><th>Heure</th><th>Objet</th><th>Confirmé</th><th>Actions</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <div class="form-section">
+    <h3 id="formRVTitle">Nouveau rendez-vous</h3>
+    <input type="hidden" id="rvId" />
+    <label>Client: <input type="text" id="rvClient"></label><br>
+    <label>Date: <input type="date" id="rvDate"></label><br>
+    <label>Heure: <input type="time" id="rvHeure"></label><br>
+    <label>Objet: <input type="text" id="rvObjet"></label><br>
+    <label>Confirmé: 
+      <select id="rvConfirme">
+        <option value="Oui">Oui</option>
+        <option value="Non">Non</option>
+      </select>
+    </label><br>
+    <button onclick="submitRV()">Enregistrer rendez-vous</button>
+    <button onclick="cancelRV()">Annuler</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
